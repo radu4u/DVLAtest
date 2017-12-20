@@ -55,7 +55,7 @@ public class CarsTestsImplementation {
 
 
 	@When("^I compare on DVLA website by registration number$")
-	public void compareDVLAWebsiteByRegistrationNumber() throws Throwable {
+	public void compareDVLAWebsiteByRegistrationNumber() {
 		for(int i = 0; i < allCarsData.size(); i++) {
 
 			String carColour = allCarsData.get(i).getColour();
@@ -107,38 +107,4 @@ public class CarsTestsImplementation {
 		hp.typeRegitrationNumber(registrationNumber);
 		hp.clickContinueButton();
 	}
-
-
-
-	@Test
-	public void ch() {
-		String path = "src/main/resources";
-		List<FilesDataStore> fd = rf.getFilesDetailsByExtension("xlsx", path);
-		List<CarDataStructure> allCarsData = new ArrayList<>();
-		for(int i = 0; i < fd.size(); i++) {
-			List<CarDataStructure> carDetailsFromOneFile = fo.getCarsDetailsFromExcellFile(fd.get(i).getFilePath());
-			for(int j = 0; j < carDetailsFromOneFile.size(); j++) {
-				allCarsData.add(carDetailsFromOneFile.get(j));
-			}
-		}
-		System.out.println(allCarsData.size());
-		for(int i = 0; i < allCarsData.size(); i++) {
-			String colour = allCarsData.get(i).getColour();
-			String registrationNumber = allCarsData.get(i).getRegistrationNumber();
-			String make = allCarsData.get(i).getMake();
-			System.out.println("MAKE number: " + make);
-			eb.manage().deleteAllCookies();
-			hp.get();
-			hp.typeRegitrationNumber(allCarsData.get(i).getRegistrationNumber());
-			hp.clickContinueButton();
-			Assert.assertTrue(cdp.getColour().equalsIgnoreCase(colour),
-					"Colour does not match, file value: " + colour + " and DVLA: " + cdp.getColour());
-			Assert.assertTrue(cdp.getRegistrationNumber().equalsIgnoreCase(registrationNumber),
-					"Reg Number does not match, file value: " + registrationNumber + " and DVLA: " + cdp.getRegistrationNumber());
-			Assert.assertTrue(cdp.getMake().equalsIgnoreCase(make),
-					"Reg Number does not match, file value: " + make + " and DVLA: " + cdp.getMake());
-
-		}
-}
-
 }

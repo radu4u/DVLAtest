@@ -22,7 +22,7 @@ public class BrowserType {
                 driver = new InternetExplorerDriver();
                 break;
             case CHROME:
-                System.setProperty("webdriver.chrome.driver", "src/test/java/resources/chromedriver");
+                System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
                 String hubURL = "http://localhost:4444/wd/hub";
                 URL url = null;
                 try {

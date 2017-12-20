@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class ReadFiles {
     private static Logger log = LogConfig.getLoger(ReadFiles.class);
 
-    public List<FilesDataStore> readFilesDetailsFromPath(String folderPath)  {
+    public List<FilesDataStore> getFilesDetailsFromPath(String folderPath)  {
         List<File> filesPath = readFilesFromDirectory(folderPath);
         List<FilesDataStore> filesDetails = new ArrayList<>();
         for(int i = 0; i < filesPath.size(); i++) {
@@ -68,7 +68,7 @@ public class ReadFiles {
 
 
     public List<FilesDataStore>getFilesDetailsByMimeType (String mimeType, String folderPath) {
-        List<FilesDataStore> filesDetails = readFilesDetailsFromPath(folderPath);
+        List<FilesDataStore> filesDetails = getFilesDetailsFromPath(folderPath);
         List<FilesDataStore> filteredList = new ArrayList<>();
         for (int i = 0; i < filesDetails.size(); i++) {
             if (filesDetails.get(i).getMimeType().equalsIgnoreCase(mimeType)) {
@@ -81,7 +81,7 @@ public class ReadFiles {
 
 
     public List<FilesDataStore>getFilesDetailsByExtension (String fileExt, String folderPath) {
-        List<FilesDataStore> filesDetails = readFilesDetailsFromPath(folderPath);
+        List<FilesDataStore> filesDetails = getFilesDetailsFromPath(folderPath);
         List<FilesDataStore> filteredList = new ArrayList<>();
         for (int i = 0; i < filesDetails.size(); i++) {
             if (filesDetails.get(i).getFileExtension().equalsIgnoreCase(fileExt)) {

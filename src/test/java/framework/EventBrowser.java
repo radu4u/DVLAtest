@@ -37,21 +37,4 @@ public class EventBrowser extends EventFiringWebDriver {
         }
         super.close();
     }
-
-//    @Before
-//    public void deleteAllCookies() {
-//        manage().deleteAllCookies();
-//    }
-//
-//    @After
-//    public void embedScreenshot(Scenario scenario) {
-//        scenario.write("Current Page URL is " + getCurrentUrl());
-//        try {
-//            byte[] screenshot = getScreenshotAs(OutputType.BYTES);
-//            scenario.embed(screenshot, "image/png");
-//        } catch (WebDriverException somePlatformsDontSupportScreenshots) {
-//            System.err.println(somePlatformsDontSupportScreenshots.getMessage());
-//        }
-//    }
-
 }
