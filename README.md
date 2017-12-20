@@ -1,7 +1,7 @@
 # DVLAtest
 Prerequisits:
-Linux/MAC
-Java 1.8
+Linux/MAC,
+Java 1.8,
 Maven
 
 How to execute all tests:
