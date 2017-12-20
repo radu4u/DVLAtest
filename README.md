@@ -1,6 +1,6 @@
 # DVLAtest
-Prerequisits:
-OS: Linux, MAC
+Prerequisits:\n
+OS: Linux, MAC\n
 Java 1.8
 Maven
 
